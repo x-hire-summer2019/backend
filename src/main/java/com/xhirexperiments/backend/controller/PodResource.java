@@ -3,12 +3,12 @@ package com.xhirexperiments.backend.controller;
 import com.xhirexperiments.backend.model.Pod;
 import com.xhirexperiments.backend.service.PodService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.net.URI;
 import java.util.List;
 
 @RestController
@@ -18,7 +18,7 @@ public class PodResource {
     @Autowired
     private PodService podService;
 
-    // --- METHODS ---
+    // --- REQUEST METHODS ---
 
     // GET
     @GetMapping("/pods/{podName}")
@@ -42,6 +42,36 @@ public class PodResource {
         }
         return ResponseEntity.notFound().build(); // returning not found status
     }
+
+    //EDIT/UPDATE a Pod
+    // PUT
+    @PutMapping("pods/{podName}/{id}")
+    public ResponseEntity<Pod> updatePod(
+            @PathVariable String podName, @PathVariable long id, @RequestBody Pod pod  ){
+
+        Pod podUpdated = podService.save(pod);
+        return new ResponseEntity<Pod>(pod, HttpStatus.OK);
+    }
+
+    // CREATE a new Pod
+    // POST
+    @PostMapping("pods/{podName}/pods")
+    public ResponseEntity<Void> updatePod(
+            @PathVariable String podName, @RequestBody Pod pod  ){
+
+        Pod createdPod = podService.save(pod);
+
+        //Location - is response header
+        //Get current resource url
+        // {id}
+        URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
+                .path("/{id}").buildAndExpand(createdPod.getId()).toUri();
+
+
+        return ResponseEntity.created(uri).build();
+    }
+
+
 
 
 }

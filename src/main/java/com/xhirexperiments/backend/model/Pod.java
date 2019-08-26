@@ -16,6 +16,11 @@ public class Pod {
 
     // -- CONSTRUCTORS --
 
+    // - default constructor for @RequestBody
+    protected Pod(){
+
+    }
+
 
     public Pod(long id, String podName, String description, String organizer, String organizerEmail, Date created, boolean status) {
         this.id = id;
