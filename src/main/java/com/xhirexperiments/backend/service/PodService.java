@@ -30,6 +30,18 @@ public class PodService {
         return pods;
     }
 
+    // save
+    public Pod save(Pod pod){
+      if(pod.getId() ==- 1 || pod.getId() == 0){
+          pod.setId(++idCounter);
+         pods.add(pod);
+      }else{
+          deleteById(pod.getId());
+          pods.add(pod);
+      }
+      return pod;
+    }
+
     public Pod deleteById(long id){
         Pod pod = findById(id);
         if(pod == null){
