@@ -20,7 +20,7 @@ public class PodResource {
 
     // --- REQUEST METHODS ---
 
-    // GET
+    // GET  
     @GetMapping("/pods/{podName}")
     public List<Pod> getPod(@PathVariable String podName){
         return podService.findAll();

@@ -36,4 +36,38 @@ public String getRole(){
     return role;
 }
 
+public void setId(long id){
+    this.id=id;
+}
+
+public void setFirstName(String firstname){
+    this.firstname=firstname;
+}
+
+public void setLastName(String lastname){
+    this.lastname=lastname;
+}
+
+public void setEmail(String email){
+    this.email=email;
+}
+
+public void setRole(String role){
+    this.role=role;
+}
+
+ @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof User)) return false;
+
+        User user = (User) o;
+
+        return id == user.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return (int) (id ^ (id >>> 32));
+    }
 }
