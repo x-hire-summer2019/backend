@@ -15,7 +15,7 @@ public class PodService {
     // --- FIELDS ---
     private static List<Pod> pods = new ArrayList<>();
 
-    private static int idCounter = 0;
+    private static long idCounter = 0;
 
     static {
         pods.add(new Pod(++idCounter,"MyPod", "The Best Pod in the world!!",
@@ -53,7 +53,7 @@ public class PodService {
         return null;
     }
 
-    public Pod findById(long id) {
+    public Pod findById(Long id) {
         for(Pod pod : pods){
             if(pod.getId() == id){
                 return pod;
