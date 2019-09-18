@@ -1,11 +1,18 @@
 package com.xhirexperiments.backend.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import java.util.Date;
 
+@Entity
 public class Pod {
 
     // -- FIELDS --
-    private long id;
+    @Id
+    @GeneratedValue
+    private Long id;  //use wrapper Long class not long
+
     private String podName;
     private String description;
     private String organizer;
@@ -33,11 +40,11 @@ public class Pod {
     }
 
     // -- PUBLIC METHODS --
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
