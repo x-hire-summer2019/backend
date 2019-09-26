@@ -14,6 +14,7 @@ public class Pod {
     private Long id;  //use wrapper Long class not long
 
     private String podName;
+    private String podType;
     private String description;
     private String organizer;
     private String organizerEmail;
@@ -29,9 +30,10 @@ public class Pod {
     }
 
 
-    public Pod(long id, String podName, String description, String organizer, String organizerEmail, Date created, boolean status) {
+    public Pod(long id, String podName, String podType, String description, String organizer, String organizerEmail, Date created, boolean status) {
         this.id = id;
         this.podName = podName;
+        this.podType = podType;
         this.description = description;
         this.organizer = organizer;
         this.organizerEmail = organizerEmail;
@@ -55,6 +57,17 @@ public class Pod {
     public void setPodName(String podName) {
         this.podName = podName;
     }
+
+    //=== podType===
+    public String getPodType() {
+        return podType;
+    }
+
+    public void setPodType(String podType) {
+        this.podType = podType;
+    }
+
+
 
     public String getDescription() {
         return description;

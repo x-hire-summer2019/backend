@@ -18,10 +18,10 @@ public class PodService {
     private static long idCounter = 0;
 
     static {
-        pods.add(new Pod(++idCounter,"MyPod", "The Best Pod in the world!!",
+        pods.add(new Pod(++idCounter,"MyPod", "Tech","The Best Pod in the world!!",
                 "Ash", "myemail@gmail.com", new Date(), true ));
 
-        pods.add(new Pod(++idCounter,"MyPod2", "The SECOND Best Pod in the world!!",
+        pods.add(new Pod(++idCounter,"MyPod2", "Business", "The SECOND Best Pod in the world!!",
                 "Maybe Ash", "myemail2@gmail.com", new Date(), true ));
     }
 
