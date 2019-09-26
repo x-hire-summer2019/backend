@@ -13,5 +13,7 @@ public interface PodJpaRepository extends JpaRepository<Pod, Long> {
     //to create a search method, and param for the search method
     List<Pod> findByPodName(String podName);
 
+    List<Pod> findByPodType(String podType);
+
 
 }

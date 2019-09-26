@@ -40,6 +40,13 @@ public class PodJpaResource {
 
     }
 
+    @GetMapping("/api/pods/{podType}")
+    public List<Pod> getPodByType(@PathVariable String podType){
+        //search method made in repository interface
+        return podJpaRepository.findByPodType(podType);
+
+    }
+
 
     @GetMapping("/api/single-pod/{id}")
     public Pod getPodById( @PathVariable long id){
