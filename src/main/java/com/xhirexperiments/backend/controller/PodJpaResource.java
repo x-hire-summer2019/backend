@@ -3,7 +3,6 @@ package com.xhirexperiments.backend.controller;
 
 import com.xhirexperiments.backend.model.Pod;
 import com.xhirexperiments.backend.repository.PodJpaRepository;
-import com.xhirexperiments.backend.service.PodService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
